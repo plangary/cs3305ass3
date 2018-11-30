@@ -33,10 +33,8 @@ job_t *get_next_job(int mode, d_linked_list_t *jobs) {
 
             struct d_node *smallest = jobs->head;
             struct d_node *current = smallest;
-
             int i;
 
-        printf("HERE\n-----------");
             while (current->next != NULL) {
 
                 i = ((job_t *) (current->value))->required_time;
@@ -46,8 +44,9 @@ job_t *get_next_job(int mode, d_linked_list_t *jobs) {
                 current = current->next;
 
             }
-        //printf("SMALLEST IS: ------------%d\n", ((job_t*)smallest->value)->required_time);
             j = ((job_t *) smallest->value);
+
+        if(smallest!=NULL)
             erase(jobs, smallest);
 
 

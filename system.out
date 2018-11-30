@@ -1,40 +1,40 @@
 MODE: RR
 Starting job #1
-Starting job #2
 Allocating 20
 Memory at 340
-Starting job #3
-Starting job #4
+Starting job #2
 Allocating 20
 Memory at 320
+Starting job #3
 Allocating 20
 Memory at 300
+Starting job #4
 Allocating 20
 Memory at 280
 Job #3 completed
-Deallocating 20
-Memory at 300
-Starting job #5
-Deallocating 20
-Memory at 320
 Job #1 completed
 Job #2 completed
 Deallocating 20
+Memory at 300
+Starting job #5
+Deallocating 20
+Memory at 320
+Deallocating 20
 Memory at 340
 Starting job #4
-Allocating 20
-Memory at 320
-Allocating 20
-Memory at 300
 Deallocating 20
-Memory at 320
-Deallocating 20
+Memory at 360
+Allocating 20
 Memory at 340
-Starting job #5
 Allocating 20
 Memory at 320
 Job #4 completed
 Deallocating 20
+Memory at 340
+Deallocating 20
+Memory at 360
+Starting job #5
+Allocating 20
 Memory at 340
 Job #5 completed
 Deallocating 20
