@@ -12,15 +12,11 @@
     <list default="true" id="cf4e16a3-5659-4ff7-abf8-7b384c0511f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/myOS" afterPath="$PROJECT_DIR$/myOS" />
-      <change beforePath="$PROJECT_DIR$/report.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/scheduler.c" afterPath="$PROJECT_DIR$/scheduler.c" />
-      <change beforePath="$PROJECT_DIR$/scheduler.h" afterPath="$PROJECT_DIR$/scheduler.h" />
       <change beforePath="$PROJECT_DIR$/scheduler.o" afterPath="$PROJECT_DIR$/scheduler.o" />
       <change beforePath="$PROJECT_DIR$/simulate.c" afterPath="$PROJECT_DIR$/simulate.c" />
-      <change beforePath="$PROJECT_DIR$/simulate.o" afterPath="$PROJECT_DIR$/simulate.o" />
+      <change beforePath="$PROJECT_DIR$/system.in" afterPath="$PROJECT_DIR$/system.in" />
       <change beforePath="$PROJECT_DIR$/system.out" afterPath="$PROJECT_DIR$/system.out" />
-      <change beforePath="$PROJECT_DIR$/test1.txt" afterPath="$PROJECT_DIR$/test1.txt" />
-      <change beforePath="$PROJECT_DIR$/tests/test1.txt" afterPath="$PROJECT_DIR$/tests/test1.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,18 +31,18 @@
       <file leaf-file-name="scheduler.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scheduler.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="47" column="90" lean-forward="false" selection-start-line="47" selection-start-column="90" selection-end-line="47" selection-end-column="90" />
+            <state relative-caret-position="442">
+              <caret line="52" column="10" lean-forward="false" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simulate.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="simulate.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/simulate.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+            <state relative-caret-position="201">
+              <caret line="149" column="88" lean-forward="false" selection-start-line="149" selection-start-column="88" selection-end-line="149" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -62,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test1.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test1.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test1.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -126,9 +122,9 @@
         <option value="$PROJECT_DIR$/scheduler.h" />
         <option value="$PROJECT_DIR$/job.h" />
         <option value="$PROJECT_DIR$/simulator.c" />
-        <option value="$PROJECT_DIR$/simulate.c" />
         <option value="$PROJECT_DIR$/test1.txt" />
         <option value="$PROJECT_DIR$/scheduler.c" />
+        <option value="$PROJECT_DIR$/simulate.c" />
       </list>
     </option>
   </component>
@@ -139,8 +135,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="350" />
-    <option name="y" value="41" />
+    <option name="x" value="333" />
+    <option name="y" value="83" />
     <option name="width" value="984" />
     <option name="height" value="833" />
   </component>
@@ -218,15 +214,15 @@
       <workItem from="1543438611220" duration="5975000" />
       <workItem from="1543513545214" duration="11449000" />
       <workItem from="1543552110444" duration="672000" />
-      <workItem from="1543601861588" duration="3193000" />
+      <workItem from="1543601861588" duration="3783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63515000" />
+    <option name="totallyTimeSpent" value="64105000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="350" y="41" width="984" height="833" extended-state="0" />
+    <frame x="333" y="83" width="984" height="833" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15853658" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -617,16 +613,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scheduler.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="47" column="90" lean-forward="false" selection-start-line="47" selection-start-column="90" selection-end-line="47" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulate.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+        <state relative-caret-position="442">
+          <caret line="52" column="10" lean-forward="false" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -635,6 +623,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulate.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="149" column="88" lean-forward="false" selection-start-line="149" selection-start-column="88" selection-end-line="149" selection-end-column="88" />
           <folding />
         </state>
       </provider>

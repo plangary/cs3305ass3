@@ -147,7 +147,7 @@ void execute_job(job_t *job) {
         else {
 
 
-            job_t * temp = init_job(job->number,job->required_memory,(job->required_memory - time_quantum));
+            job_t * temp = init_job(job->number,job->required_memory,(job->required_time - time_quantum));
             enqueue(jobs, temp);
         }
     }

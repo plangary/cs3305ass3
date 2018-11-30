@@ -50,7 +50,7 @@ job_t *get_next_job(int mode, d_linked_list_t *jobs) {
             erase(jobs, smallest);
 
 
-    } else if (mode == 3) {//RR
+    } else {//RR
         j = dequeue(jobs);
 
 
