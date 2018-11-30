@@ -13,6 +13,8 @@
 #include "job.h"
 #include "d_linked_list.h"
 #include "helper.h"
+#include <pthread.h>
+
 
 job_t *get_next_job(int, d_linked_list_t*);
 

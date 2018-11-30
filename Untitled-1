@@ -17,10 +17,8 @@ pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 void* run(void *j)
 {
     pthread_mutex_lock(&mutex1);
-
     job_t *job = get_next_job(mode, jobs);
     pthread_mutex_unlock(&mutex1);
-
     int number, required_memory;
 
     while (job != NULL)
@@ -45,7 +43,10 @@ void* run(void *j)
         /**********************************************************************
         * runs job
         **********************************************************************/
-        if (required_memory <= memory) execute_job(job);
+        if (required_memory <= memory) {
+            execute_job(job);
+
+        }
 
             /**********************************************************************
             * checks if the memory requested exceeds current available memory
@@ -61,7 +62,6 @@ void* run(void *j)
             enqueue(jobs, job);
         }
         pthread_mutex_lock(&mutex1);
-
         job = get_next_job(mode, jobs);
         pthread_mutex_unlock(&mutex1);
 
@@ -112,9 +112,11 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
     {
         if (pthread_create(&threads[i], NULL, run, NULL))
         {
+
             printf("Error: failed to create thread.\n");
             exit(FAILURE);
         }
+
     }
 
     /**********************************************************************
@@ -125,18 +127,22 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
 }
 
 void execute_job(job_t *job) {
+
     int number = job->number,
             required_memory = job->required_memory;
 
     /******************************************************************
     * inform user that the job started executing and allocate mrmory
     ******************************************************************/
+
     print_starting(fp, number);
     pthread_mutex_lock(&mutex1);
-
     allocate_memory(required_memory);
     pthread_mutex_unlock(&mutex1);
 
+
+    int tempTime = job->required_time;
+    job_t * t = job;
 
     if (mode == 3) {
         sleep(time_quantum);
@@ -147,8 +153,8 @@ void execute_job(job_t *job) {
         else {
 
 
-            job_t * temp = init_job(job->number,job->required_memory,(job->required_memory - time_quantum));
-            enqueue(jobs, temp);
+            job = init_job(job->number,job->required_memory,(job->required_memory - time_quantum));
+            enqueue(jobs, job);
         }
     }
     else {
@@ -156,20 +162,27 @@ void execute_job(job_t *job) {
         print_completed(fp, number);
     }
 
-    /******************************************************************
-    * run the job
-    ******************************************************************/
+
+
+
+
+
+
+        /******************************************************************
+        * run the job
+        ******************************************************************/
+
 
     /******************************************************************
     * inform user that the job finished executing
     ******************************************************************/
+
     free(job);
 
     /******************************************************************
     * deallocate memory
     ******************************************************************/
     pthread_mutex_lock(&mutex1);
-
     deallocate_memory(required_memory);
     pthread_mutex_unlock(&mutex1);
 

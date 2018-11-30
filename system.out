@@ -1,37 +1,31 @@
-MODE: LIFO
-Starting job #6
-Allocating 30
-Starting job #5
-Starting job #3
-Memory at 994
+MODE: FCFS
+Starting job #1
+Allocating 20
+Memory at 480
+Starting job #2
+Allocating 20
+Memory at 460
 Starting job #4
 Allocating 20
-Memory at 974
-Allocating 130
-Memory at 844
-Allocating 140
-Memory at 704
-Job #6 completed
-Deallocating 30
-Memory at 734
-Starting job #2
-Allocating 10
-Memory at 724
+Memory at 440
+Starting job #3
+Allocating 20
+Memory at 420
+Job #1 completed
+Deallocating 20
+Memory at 440
+Starting job #5
+Allocating 20
+Memory at 420
+Job #2 completed
+Deallocating 20
+Memory at 440
+Job #3 completed
+Deallocating 20
+Memory at 460
+Job #4 completed
+Deallocating 20
+Memory at 480
 Job #5 completed
 Deallocating 20
-Memory at 744
-Starting job #1
-Allocating 120
-Memory at 624
-Job #3 completed
-Deallocating 130
-Memory at 754
-Job #4 completed
-Deallocating 140
-Memory at 894
-Job #2 completed
-Deallocating 10
-Memory at 904
-Job #1 completed
-Deallocating 120
-Memory at 1024
+Memory at 500

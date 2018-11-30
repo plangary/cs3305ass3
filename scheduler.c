@@ -10,74 +10,53 @@
 #include "scheduler.h"
 
 
-job_t *get_next_job(int mode, d_linked_list_t* jobs) {
-	job_t *j;
+job_t *get_next_job(int mode, d_linked_list_t *jobs) {
+    job_t *j;
+    //pthread_mutex_t count_mutex= PTHREAD_MUTEX_INITIALIZER;
+    //int smallest = 9999;
 
 
 
 
-        if (mode ==0){ // FCFS
-            j = dequeue(jobs);
-
-        }
-    else if(mode==1){//LIFO
-
-            j = pop(jobs);
 
 
-        }
+    if (mode == 0) { // FCFS
+        j = dequeue(jobs);
 
-    else if(mode ==2){//SJF
-            job_t * temp;
-            job_t *temp2;
-            d_linked_list_t * tempJobs;
-            job_t *smallest = dequeue(jobs);
-            enqueue(jobs,smallest);
+    } else if (mode == 1) {//LIFO
+
+        j = pop(jobs);
 
 
-            for (int i = 0; i <jobs->size ; i++) {
-                temp = pop(jobs);
-                if(smallest->required_time < temp->required_time){
-                    smallest = temp;
+    } else if (mode == 2) {//SJF
+        // pthread_mutex_lock(&count_mutex);
+
+            struct d_node *smallest = jobs->head;
+            struct d_node *current = smallest;
+
+            int i;
+
+            while (current->next != NULL) {
+
+                i = ((job_t *) (current->value))->required_time;
+                if (i < ((job_t *) (smallest->value))->required_time) {
+                    smallest = current;
                 }
-
-                enqueue(tempJobs, temp);
-
+                current = current->next;
 
             }
-            for (int k = 0; k <jobs->size ; k++) {
-                temp2 = pop(jobs);
-                while(temp2!=smallest) {
-                    temp2 = dequeue(jobs);
-                    //temp2 = pop(jobs);
-                    enqueue(jobs,temp2);
-                }
+        printf("SMALLEST IS: ------------%d\n", ((job_t*)smallest->value)->required_time);
+            j = ((job_t *) smallest->value);
+            erase(jobs, smallest);
 
 
-            }
+    } else if (mode == 3) {//RR
+        j = dequeue(jobs);
 
 
-
-            jobs = dequeue(jobs);
-
-
-
-        }
-
-
-    else if(mode ==3){//RR
-
-
-
-
-
-
-        }
-
-
-
-
+    }
 
 
     return j;
 }
+
