@@ -107,13 +107,35 @@ void* pop(d_linked_list_t *l)
 
 void erase(d_linked_list_t *l,  struct d_node *n)
 {
-	if (n == l->tail) l->tail = n->prev;
-	if (n == l->head) l->head = n->next;
 
-	if (n->prev != NULL) n->prev->next = n->next;
-	if (n->next != NULL) n->next->prev = n->prev;
-	
+    if (n == l->tail) {
+		//printf("HERE0----------\n");
+
+        // jobs.tail = smallest.prev
+		l->tail = n->prev;
+
+    }
+
+    if (n == l->head) {
+		//printf("HERE1----------\n");
+
+		l->head = n->next;
+	}
+
+	if (n->prev != NULL) {
+		//printf("HERE2----------\n");
+
+		n->prev->next = n->next;
+	}
+
+
+	if (n->next != NULL) {
+
+        n->next->prev = n->prev;
+	}
+
 	l->size--;
+	//printf("HERE3----------\n");
 
 	free(n);
 }

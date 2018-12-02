@@ -14,17 +14,15 @@ FILE *fp;
 d_linked_list_t *jobs;
 pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 
-void* run(void *j)
-{
+void *run(void *j) {
     pthread_mutex_lock(&mutex1);
 
-    job_t *job = get_next_job(mode, jobs);
+    job_t *job = get_next_job(mode, jobs); // lock to prevent multiple threads calling get_next_method at once
     pthread_mutex_unlock(&mutex1);
 
     int number, required_memory;
 
-    while (job != NULL)
-    {
+    while (job != NULL) {
 
         number = job->number;
         required_memory = job->required_memory;
@@ -32,8 +30,7 @@ void* run(void *j)
         /**********************************************************************
         * checks if the memory requested exceeds maximum memory
         **********************************************************************/
-        if (required_memory > max_memory)
-        {
+        if (required_memory > max_memory) {
             /******************************************************************
             * inform user that the job won't run, clean and terminate
             ******************************************************************/
@@ -50,8 +47,7 @@ void* run(void *j)
             /**********************************************************************
             * checks if the memory requested exceeds current available memory
             **********************************************************************/
-        else
-        {
+        else {
             /******************************************************************
             * inform user that the job doesn't have enough resources at the
             * moment, add the job back to the list
@@ -75,8 +71,7 @@ void* run(void *j)
 *
 ******************************************************************************/
 void simulate(int memory_value, int mode_value, int time_quantum_value,
-              d_linked_list_t *list)
-{
+              d_linked_list_t *list) {
     /**************************************************************************
     * opens output file
     **************************************************************************/
@@ -85,8 +80,7 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
     /**************************************************************************
     * check if the system file is in the directory
     **************************************************************************/
-    if (fp == NULL)
-    {
+    if (fp == NULL) {
         printf("Unable to open %s file\n", SYSTEM_OUTPUT);
         exit(FAILURE);
     }
@@ -108,10 +102,8 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
     * create threads and run jobs
     **************************************************************************/
     pthread_t threads[NUMBER_OF_THREADS];
-    for (int i = 0; i < NUMBER_OF_THREADS; ++i)
-    {
-        if (pthread_create(&threads[i], NULL, run, NULL))
-        {
+    for (int i = 0; i < NUMBER_OF_THREADS; ++i) {
+        if (pthread_create(&threads[i], NULL, run, NULL)) {
             printf("Error: failed to create thread.\n");
             exit(FAILURE);
         }
@@ -134,24 +126,22 @@ void execute_job(job_t *job) {
     print_starting(fp, number);
     pthread_mutex_lock(&mutex1);
 
-    allocate_memory(required_memory);
+    allocate_memory(required_memory); // lock to prevent undefined behaviour when altering the amount of memory to be allocated
     pthread_mutex_unlock(&mutex1);
 
 
     if (mode == 3) {
         sleep(time_quantum);
-        if(job->required_time <= time_quantum) {
+        if (job->required_time <= time_quantum) { // check if time of current job is less than time quantum
             print_completed(fp, number);
 
-        }
-        else {
+        } else {
 
 
-            job_t * temp = init_job(job->number,job->required_memory,(job->required_time - time_quantum));
-            enqueue(jobs, temp);
+            job_t *temp = init_job(job->number, job->required_memory, (job->required_time - time_quantum)); // if current time is more, initialize new job with required time - time quantum
+            enqueue(jobs, temp); // add back on to jobs list
         }
-    }
-    else {
+    } else {
         sleep(job->required_time);
         print_completed(fp, number);
     }
@@ -170,7 +160,7 @@ void execute_job(job_t *job) {
     ******************************************************************/
     pthread_mutex_lock(&mutex1);
 
-    deallocate_memory(required_memory);
+    deallocate_memory(required_memory); // lock to prevent multiple threads altering memory at once
     pthread_mutex_unlock(&mutex1);
 
 }

@@ -10,6 +10,7 @@
 #ifndef D_LINKED_LIST_H
 #define D_LINKED_LIST_H
 
+#include "stdio.h"
 #include "stdlib.h"
 
 struct d_node
